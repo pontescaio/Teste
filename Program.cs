@@ -1,14 +1,30 @@
 ﻿using System;
+using TopicosEspeciais.Entities;
+using TopicosEspeciais.Entities.Enums;
 
-namespace TopicosEspeciais {
-    class Program {
-        static void Main(string[] args) {
+namespace TopicosEspeciais
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
 
-            TimeSpan t1 = new TimeSpan(1, 30, 0);
+            Order order = new Order
+            {
+                Id = 1080,
+                Moment = DateTime.Now,
+                Status = OrderStatus.PendingPayment
+            };
 
-            TimeSpan mult = t1.Multiply(2.0);
+            Console.WriteLine(order);
 
-            Console.WriteLine(mult);
+            string txt = OrderStatus.PendingPayment.ToString();
+
+            OrderStatus os = Enum.Parse<OrderStatus>("Delivered");
+
+            Console.WriteLine(os);
+
+            Console.WriteLine(txt);
 
         }
     }
